@@ -30,8 +30,10 @@ and `SHA256SUMS.txt` (checksums of every file) are on the
 
 **Git** must be installed (Windows: `winget install --id Git.Git -e`, Debian /
 Ubuntu: `sudo apt install git`). On the first start, a setup guide checks Git
-and offers the optional tools. Later versions can be installed from
-Settings → Updates inside the app; your projects and settings are kept.
+and offers the optional tools.
+Project Collection tells you about new versions and opens the releases page;
+you download and run the new installer yourself. Your projects and settings
+are kept.
 
 ### Windows SmartScreen
 
