@@ -64,10 +64,12 @@ warning does not by itself mean that malware was found, but take it seriously.
 Do not turn off your security software, do not add an exception and do not override a
 threat warning.
 
-**Windows SmartScreen** may show "Windows protected your PC" because the publisher of
-this unsigned app is not known to Microsoft. This is a security warning. We do not
-recommend bypassing it or any other security warning. Check that the file came from
-the releases page and that its checksum matches.
+**Windows SmartScreen** may show "Windows protected your PC" because this app is not
+code-signed yet, so the publisher is unknown to Microsoft. This is not a report that
+malware was found. If you downloaded the file from the releases page and its SHA-256
+matches `SHA256SUMS.txt`, you can continue: choose **More info** and then **Run anyway**.
+Only do this for a file whose checksum you have verified. This is different from a virus
+scanner reporting an actual threat: if that happens, stop and do not run the file.
 
 In our test of version 1.1.2 on Windows 11 with AVG active, AVG CyberCapture first held
 the installer and sent it to AVG's lab. Later the same installer started without a new
