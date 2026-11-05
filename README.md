@@ -35,12 +35,24 @@ Project Collection tells you about new versions and opens the releases page;
 you download and run the new installer yourself. Your projects and settings
 are kept.
 
-### Windows SmartScreen
+### Windows SmartScreen and virus scanners
 
-The installer is not code-signed yet, so Windows may show "Windows protected
-your PC". Make sure the file came from this page, then choose
-**More info → Run anyway**. Right after installing, your virus scanner may
-check the new program for a few seconds before it opens the first time.
+The installer is not code-signed yet, so Windows and virus scanners do not know
+the publisher.
+
+- **Windows SmartScreen** may show "Windows protected your PC". Make sure the
+  file came from this page, then choose **More info → Run anyway**.
+- **AVG and Avast** may show "Suspicious file detected" (CyberCapture), once for
+  each new file: the installer, the program on its first start and, if you
+  install it, SkillSpector. AVG then checks the file. According to AVG this
+  usually takes up to a few hours, but it can take longer, and we cannot promise
+  a fixed time. Start the file again only after AVG has finished the check and
+  released it.
+- **If a scanner reports a threat or moves the file to quarantine, stop** and do
+  not run the file. Do not turn off your virus scanner, do not add an exception
+  and do not choose an option such as "Open anyway".
+
+Only AVG was tested. Other virus scanners may react differently.
 
 ## License
 
