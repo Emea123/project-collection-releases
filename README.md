@@ -35,24 +35,44 @@ Project Collection tells you about new versions and opens the releases page;
 you download and run the new installer yourself. Your projects and settings
 are kept.
 
-### Windows SmartScreen and virus scanners
+### Warnings from Windows and security software
 
-The installer is not code-signed yet, so Windows and virus scanners do not know
-the publisher.
+Project Collection does not carry a digital signature yet, so Windows and security
+software do not know the publisher. AVG, Avast, Microsoft Defender SmartScreen or
+other security software may show a warning or check the file before it runs. Such a
+warning does not by itself mean that malware was found, but take it seriously.
 
-- **Windows SmartScreen** may show "Windows protected your PC". Make sure the
-  file came from this page, then choose **More info → Run anyway**.
-- **AVG and Avast** may show "Suspicious file detected" (CyberCapture), once for
-  each new file: the installer, the program on its first start and, if you
-  install it, SkillSpector. AVG then checks the file. According to AVG this
-  usually takes up to a few hours, but it can take longer, and we cannot promise
-  a fixed time. Start the file again only after AVG has finished the check and
-  released it.
-- **If a scanner reports a threat or moves the file to quarantine, stop** and do
-  not run the file. Do not turn off your virus scanner, do not add an exception
-  and do not choose an option such as "Open anyway".
+1. **Download only from the
+   [releases page](https://github.com/Emea123/project-collection-releases/releases)**
+   and compare the file with `SHA256SUMS.txt` there (Windows PowerShell:
+   `Get-FileHash <file> -Algorithm SHA256`, Linux: `sha256sum --check --ignore-missing
+   SHA256SUMS.txt`). A matching checksum shows that the file is complete and is the one
+   published there. It does not replace a code signature.
+2. **If your security software checks the file, wait for the check.** AVG and Avast,
+   for example, may show "Suspicious file detected" (CyberCapture) once for each new
+   file: the installer, the program on its first start and, if you install it,
+   SkillSpector. Close the message without choosing an option such as "Open anyway".
+   According to AVG the check usually takes up to a few hours, but it can take longer,
+   and we cannot promise a fixed time.
+3. **If a threat is reported or the file is moved to quarantine, stop.** Do not run
+   the file, and report the finding in the
+   [issues of this repository](https://github.com/Emea123/project-collection-releases/issues)
+   with the name of your security software and its message.
+4. **If you believe it is a false positive**, use the official false-positive or
+   support form of your security software's vendor.
 
-Only AVG was tested. Other virus scanners may react differently.
+Do not turn off your security software, do not add an exception and do not override a
+threat warning.
+
+**Windows SmartScreen** may show "Windows protected your PC" because the publisher of
+this unsigned app is not known to Microsoft. This is a security warning. We do not
+recommend bypassing it or any other security warning. Check that the file came from
+the releases page and that its checksum matches.
+
+In our test of version 1.1.2 on Windows 11 with AVG active, AVG CyberCapture first held
+the installer and sent it to AVG's lab. Later the same installer started without a new
+warning, and installing it and keeping existing data were checked successfully. AVG
+did not show us a result of its lab analysis. Only AVG was tested.
 
 ## License
 
