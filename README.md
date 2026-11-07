@@ -11,8 +11,8 @@ computer; no account is needed.
 | System | Download |
 |---|---|
 | Windows 10/11 (x64) | [Project-Collection-Setup.exe](https://github.com/Emea123/project-collection-releases/releases/latest/download/Project-Collection-Setup.exe) |
-| Linux (x64), AppImage | [Project-Collection-x86_64.AppImage](https://github.com/Emea123/project-collection-releases/releases/latest/download/Project-Collection-x86_64.AppImage) |
-| Debian / Ubuntu (x64), .deb | [project-collection_amd64.deb](https://github.com/Emea123/project-collection-releases/releases/latest/download/project-collection_amd64.deb) |
+| **Linux Mint, Ubuntu, Debian (x64), .deb – Recommended** | [project-collection_amd64.deb](https://github.com/Emea123/project-collection-releases/releases/latest/download/project-collection_amd64.deb) |
+| Linux (x64), AppImage – Portable | [Project-Collection-x86_64.AppImage](https://github.com/Emea123/project-collection-releases/releases/latest/download/Project-Collection-x86_64.AppImage) |
 
 The links always point to the newest release. Release notes, older versions
 and `SHA256SUMS.txt` (checksums of every file) are on the
@@ -23,13 +23,28 @@ and `SHA256SUMS.txt` (checksums of every file) are on the
 - **Windows:** run `Project-Collection-Setup.exe`. It installs for your Windows
   account only, without administrator rights, and adds Start menu and desktop
   shortcuts.
-- **AppImage:** make it executable and start it:
-  `chmod +x Project-Collection-x86_64.AppImage && ./Project-Collection-x86_64.AppImage`
-- **Debian / Ubuntu:** `sudo apt install ./project-collection_amd64.deb`, then
-  start *Project Collection* from the app menu or with `project-collection`.
+- **Linux Mint, Ubuntu, Debian (recommended):** install the `.deb` with the
+  package manager: `sudo apt install ./project-collection_amd64.deb` in the
+  download folder, or on Linux Mint double-click the file and choose
+  *Install Package*. The package manager also installs the libraries the app
+  needs. Then start *Project Collection* from the app menu or with
+  `project-collection`.
+- **AppImage (portable, no installation):** it needs
+  - the execute permission: `chmod +x Project-Collection-x86_64.AppImage`
+    (or *Properties → Permissions → Allow executing file as program*), then start
+    it with `./Project-Collection-x86_64.AppImage`;
+  - FUSE 2: `sudo apt install libfuse2t64` on Ubuntu 24.04, Linux Mint 22 and
+    Debian 13, `sudo apt install libfuse2` on older releases. Without it the
+    AppImage stops with an error about `libfuse.so.2`;
+  - a system that lets it use Chromium's sandbox. Ubuntu 24.04 and systems based
+    on it restrict this for programs that are not installed, so the AppImage may
+    not start there and reports that the "SUID sandbox helper" is not configured
+    correctly. Use the `.deb` in that case. Do not start the app with
+    `--no-sandbox` and do not turn off the restriction: both switch off security
+    protections of your system.
 
-**Git** must be installed (Windows: `winget install --id Git.Git -e`, Debian /
-Ubuntu: `sudo apt install git`). On the first start, a setup guide checks Git
+**Git** must be installed (Windows: `winget install --id Git.Git -e`, Linux Mint,
+Ubuntu, Debian: `sudo apt install git`). On the first start, a setup guide checks Git
 and offers the optional tools.
 Project Collection tells you about new versions and opens the releases page;
 you download and run the new installer yourself. Your projects and settings
